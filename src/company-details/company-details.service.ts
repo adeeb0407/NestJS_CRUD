@@ -36,14 +36,15 @@ export class CompanyDetailsService {
       addresses,
       industry,
     });
-    this.logger.log(`Company Details Instance Created`);
     await this.companyDetailsRepository.save(detail);
+    this.logger.log(`Company Details Instance Created`);
     return detail;
   }
 
   async deleteCompanyDetails(id: any): Promise<void> {
     const result = await this.companyDetailsRepository.delete({ id });
     if (result.affected === 0) {
+      this.logger.error(`Company Details with ID "${id}" not found`);
       throw new NotFoundException(`Company Details with ID "${id}" not found`);
     }
     this.logger.log(`Company Details Delete for id ${id}`);
@@ -80,6 +81,7 @@ export class CompanyDetailsService {
     try {
       await this.companyDetailsRepository.save(details);
     } catch (error) {
+      this.logger.error(error.error);
       throw new InternalServerErrorException(error);
     }
     this.logger.log(`Company Details Updated for id ${id}`);

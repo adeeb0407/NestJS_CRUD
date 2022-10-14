@@ -23,10 +23,7 @@ describe('AppController (e2e)', () => {
 
   it('GET Company Details if API finds the Company Data', async () => {
     const result: AxiosResponse = {
-      data: {
-        name: 'Jane Doe',
-        grades: [3.7, 3.8, 3.9, 4.0, 3.6],
-      },
+      data: {},
       status: 200,
       statusText: 'OK',
       headers: {},
@@ -56,7 +53,7 @@ describe('AppController (e2e)', () => {
     expect(response).toEqual(expectedOutput);
   });
 
-  it('throws error if GET request does not include company name', async () => {
+  it('throws error if GET request is an incorrect url', async () => {
     return await request(app.getHttpServer())
       .get('/companydetails3')
       .expect(400);

@@ -26,18 +26,18 @@ export class CompanyDetails {
   addresses: Addresses[];
 
   @Column()
-  public industry: string;
+  industry: string;
 
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
-  public createdAt: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({
     type: 'timestamp',
     default: null,
     onUpdate: 'CURRENT_TIMESTAMP(6)',
   })
-  public updatedAt: Date;
+  updatedAt: Date;
 }

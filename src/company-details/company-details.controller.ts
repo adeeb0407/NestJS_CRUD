@@ -234,7 +234,7 @@ export class CompanyDetailsController {
         industry,
       );
     } catch (e) {
-      this.logger.error(e.message);
+      this.logger.error(e.error);
       throw new ServiceUnavailableException(e.message);
     }
   }
