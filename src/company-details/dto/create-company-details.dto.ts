@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-export class CreateDetailsDto {
+import { Addresses } from '../company-addresses.interface';
+
+export class CreateCompanyDetailsDto {
   id: string | number;
 
   name: string;
@@ -9,7 +11,7 @@ export class CreateDetailsDto {
 
   registrationNumber: number;
 
-  address: [];
+  addresses: Addresses[];
 
   industry: string;
 }

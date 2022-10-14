@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { DetailsModule } from './bordingDetails/details.module';
+import { CompanyDetailsModule } from './company-details/company-details.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { typeOrmAsyncConfig } from './config/typeorm.config';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -12,8 +11,7 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
-    DetailsModule,
-    AuthModule,
+    CompanyDetailsModule,
   ],
 })
 export class AppModule {}

@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { IsOptional } from 'class-validator';
+import { Addresses } from '../company-addresses.interface';
 
-export class UpdateDetailsDto {
+export class UpdateCompanyDetailsDto {
   @IsOptional()
   name?: string;
 
@@ -12,7 +13,7 @@ export class UpdateDetailsDto {
   registrationNumber?: number;
 
   @IsOptional()
-  address?: [];
+  addresses?: Addresses[];
 
   @IsOptional()
   industry?: string;

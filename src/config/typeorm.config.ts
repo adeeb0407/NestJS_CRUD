@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
-import { Details } from 'src/bordingDetails/entity/details.entity';
+import { CompanyDetails } from 'src/company-details/entity/company-details.entity';
 
 export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
   imports: [ConfigModule],
@@ -14,12 +14,12 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
       username: configService.get('DB_USERNAME'),
       database: configService.get('DB_DATABASE'),
       password: configService.get('DB_PASSWORD'),
-      entities: [Details],
+      entities: [CompanyDetails],
       migrations: [__dirname + '/../migrations/*{.ts,.js}'],
       extra: {
         charset: 'utf8mb4_unicode_ci',
       },
-      synchronize: false,
+      synchronize: true,
     };
   },
 };
